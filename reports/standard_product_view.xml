@@ -1,0 +1,136 @@
+<t t-name="product_template.default_report">
+    <t t-call="web.external_layout">
+        <div class="page">
+             <h3><span t-field="doc.product_variant_id.name"/></h3>
+                 <!-- Product Name and Image Table -->
+              <table class="table table-borderless" style="width: 100%;">
+                <tr>
+                  <td style="width: 60%; vertical-align: top;">
+                    <span t-field="doc.description_sale"/>
+                  </td>
+                  <td style="width: 40%; text-align: right; vertical-align: top;">
+                    <span t-field="doc.product_variant_id.image_1024" t-options-widget="'image'" t-options-qweb_img_raw_data="1" style="max-width: 150px; max-height: 150px;"/>
+                  </td>
+                </tr>
+              </table>
+            <h3>Description</h3>
+            <p><span t-field="doc.description"/></p>
+            <h3>Purchase Description</h3>
+            <p><span t-field="doc.description_purchase"/></p>
+            <table class="table table-bordered table-striped">
+                <tbody>
+                    <tr>
+                        <th>Product Name</th>
+                        <td><span t-field="doc.name"/></td>
+                    </tr>
+                    <tr>
+                        <th>Internal Reference</th>
+                        <td><span t-field="doc.default_code"/></td>
+                    </tr>
+                    <tr>
+                        <th>Barcode</th>
+                        <td><span t-field="doc.barcode"/></td>
+                    </tr>
+                    <tr>
+                        <th>Product Dimensions</th>
+                        <td><span t-field="doc.dimensions"/></td>
+                    </tr>
+                    <tr>
+                        <th>Product Weight</th>
+                        <td><span t-field="doc.weight"/></td>
+                    </tr>
+                    <tr>
+                        <th>Country of Origin</th>
+                        <td><span t-field="doc.country_of_origin"/></td>
+                    </tr>
+                    <tr>
+                        <th>Unit of Measure</th>
+                        <td><span t-field="doc.uom_id"/></td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2>Related Standards</h2>
+            <table class="table table-bordered table-striped">
+              <thead>
+                <tr>
+                  <th>Standard</th>
+                  <th>Title</th>
+                  <th>Version</th>
+                  <th>Proof</th>
+                  <th>State</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr t-foreach="doc.mgmtsystem_standard_product_ids" t-as="standard">
+                  <td><span t-field="standard.standard_name"/></td>
+                  <td><span t-field="standard.standard_title"/></td>
+                  <td><span t-field="standard.standard_version"/></td>
+                  <td><span t-field="standard.proof_of_conformity"/></td>
+                  <td><span t-field="standard.standard_state"/></td>
+
+                </tr>
+              </tbody>
+            </table>
+
+                <!-- Dynamic table listing all domains related to the product -->
+            <h2>Standard Domains</h2>
+            <table class="table table-bordered table-striped">
+              <thead>
+                <tr>
+                  <th>Domain</th>
+                  <th>Title</th>
+                  <th>proof</th>
+                  <th>State</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr t-foreach="doc.product_standard_domain_ids" t-as="domain">
+                <td><span t-field="domain.product_standard_domain_name"/></td>
+                <td><span t-field="domain.product_standard_domain_title"/></td>
+                <td><span t-field="domain.proof_of_conformity"/></td>
+                <td><span t-field="domain.product_standard_domain_state"/></td>
+                </tr>
+              </tbody>
+            </table>
+            <h4>Security Capability Level SL-C <span t-field="doc.iec62443_capability_level"/></h4>
+            <table>
+                <thead>
+                    <th> Security level capability</th>
+                    <th> Security level vector</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span t-field="doc.iec62443_capability_description"/></td>
+                        <td><span t-field="doc.iec62443_vector_graph" t-options-widget="'image'" t-options-qweb_img_raw_data="1" style="max-width: 100px; max-height: 100px;"/></td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+                <h4>Operating conditions</h4>
+            <table class="table table-bordered table-striped">
+                <tbody>
+                    <tr>
+                        <th>min_operating_temp</th>
+                        <td><span t-field="doc.min_operating_temp"/> °C</td>
+                        <th>max_operating_temp</th>
+                        <td><span t-field="doc.max_operating_temp"/> °C</td>
+                    </tr>
+                    <tr>
+                        <th>min_operating_humidity</th>
+                        <td><span t-field="doc.min_operating_humidity"/></td>
+                        <th>max_operating_humidity</th>
+                        <td><span t-field="doc.max_operating_humidity"/> </td>
+                    </tr>
+                    <tr>
+                        <th>min_operating_altitude</th>
+                        <td><span t-field="doc.min_operating_altitude"/></td>
+                        <th>max_operating_altitude</th>
+                        <td><span t-field="doc.max_operating_altitude"/> </td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+        </div>
+    </t>
+</t>

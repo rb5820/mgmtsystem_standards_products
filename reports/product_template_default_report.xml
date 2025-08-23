@@ -1,0 +1,59 @@
+<t t-name="product_template.default_report">
+    <t t-call="web.external_layout">
+        <div class="page">
+            <h2>Product Details</h2>
+            <table class="table table-bordered table-striped">
+                <tbody>
+                    <tr>
+                        <th>Product Name</th>
+                        <td><span t-field="doc.name"/></td>
+                    </tr>
+                    <tr>
+                        <th>Internal Reference</th>
+                        <td><span t-field="doc.default_code"/></td>
+                    </tr>
+                    <tr>
+                        <th>Barcode</th>
+                        <td><span t-field="doc.barcode"/></td>
+                    </tr>
+                    <tr>
+                        <th>Product Type</th>
+                        <td><span t-field="doc.type"/></td>
+                    </tr>
+                    <tr>
+                        <th>Sale Price</th>
+                        <td><span t-field="doc.list_price"/></td>
+                    </tr>
+                    <tr>
+                        <th>Cost</th>
+                        <td><span t-field="doc.standard_price"/></td>
+                    </tr>
+                    <tr>
+                        <th>Unit of Measure</th>
+                        <td><span t-field="doc.uom_id"/></td>
+                    </tr>
+                    <tr>
+                        <th>Category</th>
+                        <td><span t-field="doc.categ_id"/></td>
+                    </tr>
+                    <tr>
+                        <th>Company</th>
+                        <td><span t-field="doc.company_id"/></td>
+                    </tr>
+                    <tr>
+                        <th>Active</th>
+                        <td><span t-field="doc.active"/></td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3>Description</h3>
+            <p><span t-field="doc.description"/></p>
+            <h3>Sales Description</h3>
+            <p><span t-field="doc.description_sale"/></p>
+            <h3>Purchase Description</h3>
+            <p><span t-field="doc.description_purchase"/></p>
+            <h3>Product Image</h3>
+            <span t-field="doc.image_1024" t-options-widget="'image'" t-options-qweb_img_raw_data="1" style="max-width: 200px; max-height: 200px;"/>
+        </div>
+    </t>
+</t>

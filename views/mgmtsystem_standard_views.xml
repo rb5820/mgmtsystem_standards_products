@@ -1,0 +1,68 @@
+<odoo>
+    
+    <record id="view_mgmtsystem_standards_product_list" model="ir.ui.view">
+      <field name="name">mgmtsystem.standard.product.list</field>
+      <field name="model">mgmtsystem.standard.product</field>
+      <field name="arch" type="xml">
+        <list>
+          <field name="name"/>
+          <field name="version"/>
+          <field name="title"/>    
+          <field name="related_child_ids"/>
+          <field name="company_id" groups="base.group_multi_company"/>
+          <field name="allowed_company_ids" groups="base.group_multi_company"/>
+
+        </list>
+      </field>
+    </record>
+
+    <!--  Form  definition  -->
+    <record id="view_mgmtsystem_standards_product_form" model="ir.ui.view">
+        <field name="name">mgmtsystem.standard.product.form</field>
+        <field name="model">mgmtsystem.standard.product</field>
+        <field name="arch" type="xml">
+            <form string="IEC Standard">
+            <header>
+                
+            </header>
+                <sheet>
+                    <group>
+                        <field name="parent_iec_id"/>
+                        <field name="name"/>
+                        <field name="version"/>
+                        <field name="title"/> 
+                        <field name="description"/>
+                        <field name="related_child_ids"/>
+                        <field name="reference"/>
+                        <field name="company_id" groups="base.group_multi_company"/>
+                        <field name="allowed_company_ids" groups="base.group_multi_company"/>
+                        <field name="product_ids"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    
+    <!--  Tree  definition  
+    <record id="view_iec_standard_tree" model="ir.ui.view">
+        <field name="name">iec.standard.tree</field>
+        <field name="model">iec.standard</field>
+        <field name="arch" type="xml">
+            <tree string="IEC Standards">
+                <field name="name"/>
+                <field name="reference"/>
+            </tree>
+        </field>
+    </record>
+ Actions  definition  -->
+    <record id="action_mgmtsystem_standard_product" model="ir.actions.act_window">
+        <field name="name">Management System Standards Products</field>
+        <field name="res_model">mgmtsystem.standard.product</field>
+        <field name="view_mode">list,form</field>
+        <!-- field name="view_id" ref="view_iec_standard_tree"/ -->
+    </record>
+
+    <!--   Menu definition  -->
+    <menuitem id="menu_mgmtsystem_standard_product_root" name="Management System Standards Products" sequence="20"/>
+    <menuitem id="menu_mgmtsystem_standard_product" name="Management System Standards Products" parent="menu_mgmtsystem_standard_product_root" action="action_mgmtsystem_standard_product" sequence="20"/>
+</odoo>
