@@ -27,7 +27,7 @@ class MgmtSystemStandardDomainProduct(models.Model):
         required=True
     )
 
-    standard_id = fields.Many2one('mgmtsystem.standard','Parent', store=True)
+    standard_id = fields.Many2one('mgmtsystem.standard','Standard', store=True)
 
     standard_name = fields.Char(
         related='standard_id.name',

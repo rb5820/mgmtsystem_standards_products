@@ -28,7 +28,7 @@ class MgmtSystemStandardProduct(models.Model):
 
     standard_id = fields.Many2one(
         'mgmtsystem.standard',
-        'Parent', 
+        string='Standard',
         store=True
         )
 
