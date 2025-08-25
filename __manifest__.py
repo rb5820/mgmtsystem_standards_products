@@ -5,7 +5,7 @@
     'summary': 'Manage Management System Standards',
     'description': 'A module to manage management system standards on products',
     'author': 'RB5820',
-    'depends': ['base', 'product', 'mgmtsystem', 'mgmtsystem_standards'],
+    'depends': ['base', 'mail', 'product', 'mgmtsystem', 'mgmtsystem_standards'],
     'category': 'RB5820',
     'website': "https://www.attiesatelier.be",
     'data': [

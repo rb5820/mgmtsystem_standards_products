@@ -5,9 +5,15 @@ from odoo.exceptions import ValidationError, UserError
 class MgmtSystemStandardProduct(models.Model):
     _name = 'mgmtsystem.standard.product'
     _description = 'Management System Standard Product'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
     _parent_name = 'parent_id'                  # by default its name is parent_id you can change it
     _parent_store = True                        # tell odoo that this model support parent & child relation ship
     _check_company_auto = True
+    
+    @api.model
+    def _valid_field_parameter(self, field, name):
+        # Allow tracking parameter for any field
+        return name == 'tracking' or super()._valid_field_parameter(field, name)
 
     
     parent_id = fields.Many2one('mgmtsystem.standard.product', string='Parent', index=True, ondelete='cascade')

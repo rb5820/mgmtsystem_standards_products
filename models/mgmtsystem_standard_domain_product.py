@@ -5,9 +5,12 @@ from odoo.exceptions import ValidationError, UserError
 class MgmtSystemStandardDomainProduct(models.Model):
     _name = 'mgmtsystem.standard.domain.product'
     _description = 'Management System Standard Domain Product'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
     _parent_name = 'parent_id'                  # by default its name is parent_id you can change it
     _parent_store = True                        # tell odoo that this model support parent & child relation ship
     _check_company_auto = True
+   
+
 
     
     parent_id = fields.Many2one('mgmtsystem.standard.domain.product', string='Parent', index=True, ondelete='cascade')
