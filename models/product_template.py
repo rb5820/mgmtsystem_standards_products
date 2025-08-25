@@ -16,7 +16,7 @@ class ProductTemplate(models.Model):
     standard_id = fields.Many2one(
         'mgmtsystem.standard',
         string='Standard',
-        required=True
+        required=False
     )
 
     standard_name = fields.Char(
@@ -66,7 +66,7 @@ class ProductTemplate(models.Model):
     standard_domain_id = fields.Many2one(
         'mgmtsystem.standard.domain',
         string='Standard Domain',
-        required=True
+        required=False
     )
 
 
