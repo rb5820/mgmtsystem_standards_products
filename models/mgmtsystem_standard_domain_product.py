@@ -42,7 +42,7 @@ class MgmtSystemStandardDomainProduct(models.Model):
 
     standard_version = fields.Char(
         related='standard_id.version',
-        string='Version',
+        string='Standard Version',
         store=True,
         readonly=True
     )
